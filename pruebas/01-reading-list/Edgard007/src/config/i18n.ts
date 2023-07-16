@@ -9,7 +9,7 @@ i18n
     lng: "es",
     backend: {
       // Configura aquí la URL de tu servidor de traducción
-      loadPath: "/locale/{{ns}}/{{lng}}.json",
+      loadPath: "/{{ns}}/{{lng}}.json",
     },
     fallbackLng: "en",
     debug: true,
