@@ -23,13 +23,15 @@
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
       "@helpers/*": ["src/helpers/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@store/*": ["src/store/*"],
-      "@actions/*": ["src/store/actions/*"],
-      "@interfaces/*": ["src/store/interfaces/*"],
-      "@reducers/*": ["src/store/reducers/*"]
+      "@actions/*": ["src/utils/actions/*"],
+      "@contexts/*": ["src/utils/contexts/*"],
+      "@interfaces/*": ["src/utils/interfaces/*"],
+      "@providers/*": ["src/utils/providers/*"],
+      "@reducers/*": ["src/utils/reducers/*"],
+      "@types/*": ["src/utils/types/*"]
     },
 
     /* Linting */
