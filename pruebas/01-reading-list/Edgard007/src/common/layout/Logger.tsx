@@ -17,9 +17,6 @@ const Logger = ({ children }: LoggerProps) => {
 };
 
 const Wrapper = styled.div`
-  --hNav: 4rem;
-  --z-md: 5;
-
   width: 100%;
   height: 100vh;
   position: relative;
@@ -30,6 +27,8 @@ const Wrapper = styled.div`
     height: calc(100% - var(--hNav));
     right: 0;
     bottom: 0;
+
+    background-color: var(--color-primary);
   }
 `;
 
