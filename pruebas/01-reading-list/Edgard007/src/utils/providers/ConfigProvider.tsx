@@ -44,6 +44,16 @@ export const ConfigProvider = ({ children }: ConfigProviderProps) => {
   const [state, dispatch] = useReducer(sessionReducer, initStateReducer);
 
   useEffect(() => {
+    restoreState();
+  }, []);
+
+  window.addEventListener("storage", (ev) => {
+    if (ev.key === "CONFIG") {
+      restoreState();
+    }
+  });
+
+  const restoreState = () => {
     // ==> Restore info
     const config = localStorage.getItem("CONFIG");
 
@@ -58,7 +68,7 @@ export const ConfigProvider = ({ children }: ConfigProviderProps) => {
       changeLanguage(body?.lng);
       document.title = i18n.t("app_name");
     }
-  }, []);
+  };
 
   const changeMode = (mode: ModeSite) => {
     dispatch({
