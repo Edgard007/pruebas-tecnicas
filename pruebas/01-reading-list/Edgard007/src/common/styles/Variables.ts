@@ -5,7 +5,7 @@ import { DefaultTheme } from "@interfaces/theme-interface";
 
 import Fonts from "./fonts";
 
-const Variables = css<{ theme: DefaultTheme }>`
+const Variables = css<{ theme?: DefaultTheme }>`
   :root {
     // -> Fonts
     ${Fonts}
