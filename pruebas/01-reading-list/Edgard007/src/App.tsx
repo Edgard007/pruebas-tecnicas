@@ -4,11 +4,14 @@ import { Suspense } from "react";
 import Loading from "@components/Loading";
 import Logger from "@common/layout/Logger";
 
+// ==> Pages
+import Home from "@pages/Home";
+
 const App = () => {
   return (
     <Suspense fallback={<Loading />}>
       <Logger>
-        <div className="App">Hello World</div>
+        <Home />
       </Logger>
     </Suspense>
   );
