@@ -4,7 +4,7 @@ import { createContext, useReducer, useEffect, useMemo } from "react";
 import { LibraryAction } from "@utils/types/library-type";
 
 // ==> Interfaces
-import { Library, Book } from "@interfaces/library-interface";
+import { LibraryRoot } from "@interfaces/library-interface";
 
 // ==> Reducers
 import libraryReducer, {
@@ -19,7 +19,7 @@ interface LibraryProviderProps {
 }
 
 export type LibraryContextType = {
-  state: Library;
+  state: LibraryRoot;
   dispatch: React.Dispatch<LibraryAction>;
 };
 
@@ -29,8 +29,6 @@ export const LibraryContext = createContext<LibraryContextType>(
 
 export const LibraryProvider = ({ children }: LibraryProviderProps) => {
   const librarys = libraryAdapter();
-
-  console.log(librarys);
 
   // ==> STATE
   const [state, dispatch] = useReducer(libraryReducer, initStateReducer);
@@ -51,7 +49,7 @@ export const LibraryProvider = ({ children }: LibraryProviderProps) => {
 
     if (library) {
       // ==> Restore sesion
-      const body: Library = JSON.parse(library);
+      const body: LibraryRoot = JSON.parse(library);
       dispatch({
         type: "RESTORE",
         payload: body,
@@ -59,18 +57,18 @@ export const LibraryProvider = ({ children }: LibraryProviderProps) => {
     }
   };
 
-  const insertBooks = (books: Book[]) => {
+  const insertBooks = (data: LibraryRoot) => {
     dispatch({
       type: "SET_BOOKS",
       payload: {
-        book: books,
+        library: data?.library ?? [],
       },
     });
   };
 
   useMemo(() => {
-    const { book } = librarys;
-    if ((book || []).length) insertBooks(book);
+    const { library } = librarys;
+    if ((library || []).length) insertBooks(librarys);
   }, [librarys]);
 
   return (

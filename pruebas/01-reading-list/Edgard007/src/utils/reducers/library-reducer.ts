@@ -2,23 +2,23 @@
 import { LibraryAction } from "@utils/types/library-type";
 
 // ==> Interfaces
-import { Library } from "@interfaces/library-interface";
+import { LibraryRoot } from "@interfaces/library-interface";
 
-const initialState: Library = {
-  book: [],
+const initialState: LibraryRoot = {
+  library: [],
 };
 
 const libraryReducer = (
-  state: Library = initialState,
+  state: LibraryRoot = initialState,
   action: LibraryAction
-): Library => {
-  let body: Library;
+): LibraryRoot => {
+  let body: LibraryRoot;
 
   switch (action?.type) {
     case "SET_BOOKS":
       body = {
         ...state,
-        book: action?.payload?.book,
+        library: action?.payload?.library,
       };
 
       localStorage.setItem("LIBRARY", JSON.stringify(body));
@@ -27,7 +27,7 @@ const libraryReducer = (
     case "READ_BOOK":
       body = {
         ...state,
-        book: action?.payload?.book,
+        library: action?.payload?.library,
       };
 
       localStorage.setItem("LIBRARY", JSON.stringify(body));

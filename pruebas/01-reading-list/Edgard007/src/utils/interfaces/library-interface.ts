@@ -1,5 +1,9 @@
+export interface LibraryRoot {
+  library: Library[];
+}
+
 export interface Library {
-  book: Book[];
+  book: Book;
 }
 
 export interface Book {

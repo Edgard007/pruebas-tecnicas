@@ -1,7 +1,7 @@
-import { Library } from "@interfaces/library-interface";
+import { LibraryRoot } from "@interfaces/library-interface";
 
 export type LibraryAction =
-  | { type: "SET_BOOKS"; payload: Library }
-  | { type: "READ_BOOK"; payload: Library }
-  | { type: "RESTORE"; payload: Library }
+  | { type: "SET_BOOKS"; payload: LibraryRoot }
+  | { type: "READ_BOOK"; payload: LibraryRoot }
+  | { type: "RESTORE"; payload: LibraryRoot }
   | { type: "RESET" };
